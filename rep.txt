@@ -1,0 +1,33 @@
+## report: difference in energy conservation
+
+As sun mass >> earth/mars mass,
+all gravitational effets are dominated by
+the sun. Thus for earth, mars' effect
+becomes negligible. For mars, earth's effect
+becomes negligible. To good approximation,
+earth maintains a uniform circular motion;
+the same applies to mars.
+
+Therefore theoretically, we expect KE and PE
+remain fairly constant, with slight sinusoidal
+variations when planets revolve in circles.
+In a program, errors can accumulate,
+leading to variation in energies.
+
+For Euler method, there exists a large drop in
+both KE and PE. That is because Euler method is
+a first order scheme, so over iterations,
+errors accumulate to become large.
+Over 4 earth periods (400 code steps),
+errors are nearly 0.2 (~10^-1).
+
+For predictor-corrector method, the drop in
+energies is comparatively lower. That is because
+while Euler method is used to predict,
+there is a corrector method to modify and tune.
+Thus it outperforms Euler method. Over 4 periods,
+errors are nearly 10^-5, which is 4-5 order
+better than Euler method.
+
+Note: look at the 4,5-th columns of the csv files
+for KE,PE errors.
